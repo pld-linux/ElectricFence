@@ -1,11 +1,11 @@
-Summary:	Electric Fence C memory debugging library
-Summary(de):	Electric Fence C Memory-Debugging-Library
+Summary:	A debugger which detects memory allocation violations
+Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
 Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
-Summary(pl):	Biblioteka Electric Fence
+Summary(pl):	Biblioteka do wykrywania b³edów alokacji pamiêci
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
@@ -15,16 +15,26 @@ Patch1:		ElectricFence-no_bash.spec
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
-Electric Fence is a libary that can be used for C programming and debugging.
-Package contain shared library libefence which can be loaded by LD_PRELOAD
-without relinking debuged program. Package contain also ef shell script
-which preloads libefence and runs program passed as parameter.
+If you know what malloc() violations are, you'll be interested in
+ElectricFence. ElectricFence is a tool which can be used for C programming
+and debugging. It uses the virtual memory hardware of your system to detect
+when software overruns malloc() buffer boundaries, and/or to detect any
+accesses of memory released by free(). ElectricFence will then stop the
+program on the first instruction that caused a bounds violation and you can
+use your favorite debugger to display the offending statement.
+
+This package will install ElectricFence, which you can use if you're
+searching for a debugger to find malloc() violations.
 
 %description -l de
-Electric Fence ist eine Library, die für das Programmieren in C und für
-Debugging-Zwecke benutzt werden kann. Sie wird beim Kompilieren gelinkt und
-warnt vor möglichen Probleme, etwa vor der Freigabe von nicht existierendem
-Speicher und ähnlichem.
+Wenn Sie wissen, was malloc()-Verletzungen sind, sind Sie wahrscheinlich an
+ElectricFence interessiert. ElectricFence ist ein Tool, das zur C-
+Programmierung und zum Debugging benutzt werden kann. Es benutzt virtuelle
+Speicherhardware, um zu erkennen, wenn Software malloc()-Buffergrenzen
+übersteigt, und wenn Speicher mit free() freigegeben wird. ElectricFence
+beendet das Programm bei der Instruktion, die die Speicherverletzung
+ausgelöst hat, und Sie können Ihren Lieblingsdebugger benutzen, um den
+Befehl anzuzeigen.
 
 %description -l fr
 Electric Fence est une bibliothéque utilisée pour la programmation en C et
