@@ -37,7 +37,7 @@ diff -Nru ElectricFence-2.2.2/Makefile.am ElectricFence-2.2.2.new/Makefile.am
 @@ -0,0 +1,27 @@
 +## Process this file with automake to produce Makefile.in
 +
-+AUTOMAKE_OPTIONS = 1.4
++DEFS = -DUSE_SEMAPHORE
 +
 +man_MANS = efence.3
 +
