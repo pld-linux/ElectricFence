@@ -5,13 +5,13 @@ Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.0
-Release:	1
-Excludearch:	alpha
+Release:	2
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
 Source:		ftp://perens.com/pub/ElectricFence/%{name}-%{version}.tar.gz
 Patch0:		ElectricFence-longjmp.patch
+patch1:		ElectricFence-shlib.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -97,6 +97,12 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/lib*.a
 
 %changelog
+* Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2-2]
+- removed "Excludearch: alpha",
+- added a patch to properly build the shared library (Maciej W. Ró¿ycki
+  <macro@ds2.pg.gda.pl>).
+
 * Mon Apr 12 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2-1]
 - added static subpackage; main package contains now shared library which
