@@ -1,9 +1,21 @@
 Summary:	A debugger which detects memory allocation violations
+Summary(cs):	Nástroj pro odhalování chyb pøi alokaci dynamické pamìti
+Summary(da):	En afluser som finder problemer ved hukommelsesallokering
 Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
 Summary(es):	Electric Fence biblioteca de depuración de memoria en C
 Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
+Summary(id):	Debugger untuk menditeksi memory allocation violations
+Summary(is):	Aflúsunartól sem finnur villur í minnismeğhöndlun
+Summary(it):	Debugger che rileva le violazioni dell'allocazione di memoria
+Summary(ja):	¥á¥â¥ê³ä¤êÅö¤Æ¤Î¿¯Î¬¤ò¸¡½Ğ¤¹¤ë¥Ç¥Ğ¥Ã¥¬
+Summary(no):	Et avlusingsprogram som finner overtramp ved minneallokering
 Summary(pl):	Biblioteka do wykrywania b³êdów alokacji pamiêci
+Summary(pt):	Um depurador que detecta violações à memória alocada
 Summary(pt_BR):	Electric Fence biblioteca de depuração de memória em C
+Summary(ru):	ïÔÌÁÄŞÉË, ×ÙÑ×ÌÑÀİÉÊ ÏÛÉÂËÉ × ÒÁÓĞÒÅÄÅÌÅÎÉÉ ĞÁÍÑÔÉ
+Summary(sk):	Debugger pre vyhµadávanie chybnıch prístupov k alokovanej pamäti
+Summary(sl):	Razhro¹èevalnik, ki najde prekoraèitve dodeljenega pomnilnika
+Summary(sv):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
 Summary(tr):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN):	Ò»ÖÖµ÷ÊÔÆ÷ÓÃÓÚ¼ì²âÄÚ´æ·ÖÅä´íÎó
 Name:		ElectricFence
@@ -11,8 +23,18 @@ Version:	2.2.2
 Release:	11
 License:	GPL
 Group:		Development/Debuggers
+Group(cs):	Vıvojové prostøedky/Debuggery
+Group(da):	Udvikling/Fejlfinding
 Group(de):	Entwicklung/Debugger
+Group(es):	Desarrollo/Depuradores
+Group(fr):	Développement/Débogueurs
+Group(it):	Sviluppo/Debugger
+Group(ja):	³«È¯/¥Ç¥Ğ¥Ã¥¬
+Group(no):	Utvikling/Debuggere
 Group(pl):	Programowanie/Odpluskwiacze
+Group(pt):	Desenvolvimento/Depuradores
+Group(ru):	òÁÚÒÁÂÏÔËÁ/ïÔÌÁÄŞÉËÉ
+Group(sv):	Utveckling/Felsökning
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 Patch0:		%{name}-longjmp.patch
 Patch1:		%{name}-no_bash.spec
@@ -86,8 +108,18 @@ bırakılması gibi) konusunda uyarır.
 Summary:	Static Electric Fence library
 Summary(pl):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
+Group(cs):	Vıvojové prostøedky/Debuggery
+Group(da):	Udvikling/Fejlfinding
 Group(de):	Entwicklung/Debugger
+Group(es):	Desarrollo/Depuradores
+Group(fr):	Développement/Débogueurs
+Group(it):	Sviluppo/Debugger
+Group(ja):	³«È¯/¥Ç¥Ğ¥Ã¥¬
+Group(no):	Utvikling/Debuggere
 Group(pl):	Programowanie/Odpluskwiacze
+Group(pt):	Desenvolvimento/Depuradores
+Group(ru):	òÁÚÒÁÂÏÔËÁ/ïÔÌÁÄŞÉËÉ
+Group(sv):	Utveckling/Felsökning
 Obsoletes:	libefence0-devel
 
 %description static
