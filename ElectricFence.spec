@@ -5,12 +5,13 @@ Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	1
+Release:	2
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
-Source:		ftp://perens.com/pub/ElectricFence/%{name}-%{version}.tar.gz
+Source:		ftp://perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 Patch0:		ElectricFence-longjmp.patch
+Patch1:		ElectricFence-no_bash.spec
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -61,6 +62,7 @@ Biblioteka statyczna Electric Fence.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
@@ -79,6 +81,9 @@ strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
 	README CHANGES
 
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -94,6 +99,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.a
 
 %changelog
+* Thu Jun 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2.2-2]
+- fixed ef.sh script (this is pure sh script),
+- added runing /sbin/ldconfig in %post/%postun.
+
 * Fri Jun  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2.2-1]
 - based on RH spec,
