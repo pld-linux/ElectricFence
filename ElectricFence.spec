@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.0
-Release:	2
+Release:	3
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
@@ -76,8 +76,6 @@ make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/man/man3 \
 	install
 
-echo .so libefence.3 > $RPM_BUILD_ROOT/usr/man/man3/efence.3
-
 strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*so.*.*
 
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/* \
@@ -98,6 +96,11 @@ rm -rf $RPM_BUILD_ROOT
 /usr/lib/lib*.a
 
 %changelog
+* Sat Apr 24 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2-3]
+- fixed makin man page for EF,
+- recompiles on new rpm.
+
 * Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2-2]
 - removed "Excludearch: alpha",
