@@ -4,21 +4,21 @@ Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
 Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
-Version:	2.1
+Version:	2.2.0
 Release:	1
 Excludearch:	alpha
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
 Source:		ftp://perens.com/pub/ElectricFence/%{name}-%{version}.tar.gz
-Patch0:		ElectricFence-glibc.patch
-Patch1:		ElectricFence-longjmp.patch
+Patch0:		ElectricFence-longjmp.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
 Electric Fence is a libary that can be used for C programming and debugging.
-You link it in at compile time and it will warn you of possible problems
-such as free'ing memory that doesn't exist, etc.
+Package contain shared library libefence which can be loaded by LD_PRELOAD
+without relinking debuged program. Package contain also ef shell script
+which preloads libefence and runs program passed as parameter.
 
 %description -l de
 Electric Fence ist eine Library, die für das Programmieren in C und für
@@ -34,6 +34,12 @@ problèmes éventuels de désallocation de mémoire, etc.
 %description -l pl
 Electric Fence jest bibliotek± pomocn± podczas programowania w
 jêzyku C i "odpluskwianiu".
+Pakiet zawiera bibliotekê wspó³dzielon± która mo¿e byæ za³adowana przez
+zmienn± LD_PRELOAD w trakcie uruchamiania dowolnego programu dziêki temu nie
+potrzeba linkowaæ z t± bibliotek± ¶ledzonego programu. Pakiet zawiera tak¿e
+skrypt shellowy ef, któremu mo¿na ³aduje do pamiêci przez LD_PRELOAD
+libliotekê libefence i uruchamia program przekazyny do tego skryptu jako
+parametr.
 
 %description -l tr
 Electric Fence, C'de programlama ve hata ayýklama için kullanýlabilen bir
@@ -41,19 +47,31 @@ kitaplýktýr. Derleme esnasýnda programýnýza baðlarsanýz, sizi ortaya
 çýkabilecek sorunlar (var olmayan bir bellek parçasýnýn serbest býrakýlmasý
 gibi) konusunda uyarýr.
 
+%package static
+Summary:	Satatic Electric Fence library
+Summary(pl):	Biblioteka statyczna Electric Fence
+Group:		Development/Debuggers
+Group(pl):	Programowanie/Odpluskwiacze
+
+%description static
+Satatic Electric Fence library.
+
+%description -l pl static
+Biblioteka statyczna Electric Fence.
+
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/{lib,man/man3}
+mkdir -p $RPM_BUILD_ROOT/usr/{bin,lib,man/man3}
 
-make	LIB_INSTALL_DIR=$RPM_BUILD_ROOT/usr/lib \
+make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
+	LIB_INSTALL_DIR=$RPM_BUILD_ROOT/usr/lib \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/man/man3 \
 	install
 
@@ -68,10 +86,21 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *gz
-/usr/lib/lib*.a
+%attr(755,root,root) /usr/bin/ef
+%attr(755,root,root) /usr/lib/lib*.so.*.*
 /usr/man/man3/*
 
+%files static
+%defattr(644,root,root,755)
+/usr/lib/lib*.a
+
 %changelog
+* Mon Apr 12 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2-1]
+- added static subpackage; main package contains now shared library which
+  can be preloaded for any executable without relinking,
+- added static subpackage.
+
 * Sun Apr 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.1-1]
 - added Group(pl),
