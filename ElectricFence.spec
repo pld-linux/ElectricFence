@@ -24,6 +24,7 @@ Release:	13
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
+# Source0-md5:	56a3cbfdbf65f916988787c789c63e80
 Patch0:		%{name}-longjmp.patch
 Patch1:		%{name}-no_bash.spec
 Patch2:		%{name}-va_arg.patch
