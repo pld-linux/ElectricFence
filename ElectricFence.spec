@@ -4,14 +4,13 @@ Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
 Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
-Version:	2.2.0
-Release:	4
+Version:	2.2.2
+Release:	1
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
 Source:		ftp://perens.com/pub/ElectricFence/%{name}-%{version}.tar.gz
 Patch0:		ElectricFence-longjmp.patch
-patch1:		ElectricFence-shlib.patch
 BuildRoot:	/tmp/%{name}-%{version}-root
 
 %description
@@ -62,10 +61,9 @@ Biblioteka statyczna Electric Fence.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
-make CFLAGS="$RPM_OPT_FLAGS"
+make CFLAGS="$RPM_OPT_FLAGS -g"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -96,54 +94,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/lib*.a
 
 %changelog
-* Sun May  9 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2-4]
-- now package is FHS 2.0 compliant.
-
-* Sat Apr 24 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2-3]
-- fixed makin man page for EF,
-- recompiles on new rpm.
-
-* Thu Apr 15 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2-2]
-- removed "Excludearch: alpha",
-- added a patch to properly build the shared library (Maciej W. Ró¿ycki
-  <macro@ds2.pg.gda.pl>).
-
-* Mon Apr 12 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2-1]
-- added static subpackage; main package contains now shared library which
-  can be preloaded for any executable without relinking,
-- added static subpackage.
-
-* Sun Apr 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.1-1]
-- added Group(pl),
-- gzipping %doc.
-
-* Wed Dec 30 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
-  [2.0.5-11d]
-- build for PLD, 
-- major changes.
-
-* Fri Aug 21 1998 Jeff Johnson <jbj@redhat.com>
-- create efence.3 (problem #830)
-
-* Tue Aug  4 1998 Jeff Johnson <jbj@redhat.com>
-- build root
-
-* Mon Jun 01 1998 Prospector System <bugs@redhat.com>
-- translations modified for de
-
-* Mon Jun 01 1998 Prospector System <bugs@redhat.com>
-- need to use sigsetjmp() and siglongjmp() for proper testing
-
-* Fri May 01 1998 Prospector System <bugs@redhat.com>
-- translations modified for de, fr, tr
-
-* Thu Apr 30 1998 Cristian Gafton <gafton@redhat.com>
-- use ExcludeArch instead of Exclude
-
-* Thu Jul 10 1997 Erik Troan <ewt@redhat.com>
-- built against glibc
+* Fri Jun  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2.2-1]
+- based on RH spec,
+- spec rewrited by PLD team.
