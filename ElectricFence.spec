@@ -51,12 +51,11 @@ problèmes éventuels de désallocation de mémoire, etc.
 %description -l pl
 Electric Fence jest bibliotek± pomocn± podczas programowania w
 jêzyku C i "odpluskwianiu".
-Pakiet zawiera bibliotekê wspó³dzielon± która mo¿e byæ za³adowana przez
+Pakiet zawiera bibliotekê wspó³dzielon±, która mo¿e byæ za³adowana przez
 zmienn± LD_PRELOAD w trakcie uruchamiania dowolnego programu dziêki temu nie
 potrzeba linkowaæ z t± bibliotek± ¶ledzonego programu. Pakiet zawiera tak¿e
-skrypt shellowy ef, któremu mo¿na ³aduje do pamiêci przez LD_PRELOAD
-libliotekê libefence i uruchamia program przekazyny do tego skryptu jako
-parametr.
+skrypt pow³oki ef, który ³aduje do pamiêci przez LD_PRELOAD bibliotekê
+libefence i uruchamia program przekazyny do tego skryptu jako parametr.
 
 %description -l pt_BR
 Electric Fence é uma biblioteca que pode ser usada para programação e
