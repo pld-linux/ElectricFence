@@ -1,0 +1,219 @@
+diff -Nru ElectricFence-2.2.2/CHANGES ElectricFence-2.2.2.new/CHANGES
+--- ElectricFence-2.2.2/CHANGES	Thu Oct  5 18:20:20 2000
++++ ElectricFence-2.2.2.new/CHANGES	Thu Jan  1 01:00:00 1970
+@@ -1,29 +0,0 @@
+-2.2.2	Oops. Shared library must be position-independent code.
+-
+-2.2.0
+-	Merge in bug-fixes, multi-thread patch, shared library patch,
+-	debian/ subdirectory used for building the Debian package
+-
+-2.0.1
+-	Add work-arounds for kernel and library bugs under HP-UX.	
+-	HP has been notified and will repair these soon.
+-
+-2.0.2
+-	Add support for DEC Alpha. Add %a pattern for printing addresses, which
+-	assumes they are passed in a void *.
+-
+-2.0.3 30-Sep-1993
+-	When realloc is passed a zero address, it should work the same
+-	way as malloc(). Fix forward declaration of mprotect() in page.c to
+-	use void *, not caddr_t, for addresses. IRIX 5.0.1 complained about that.
+-
+-2.0.4 29-May-1994
+-	Don't attempt to allow access to a zero-sized page when
+-	EF_ALLOW_MALLOC_0 is set. Attempt to un-map memory from
+-	Page_Delete(). If that doesn't work, fall back by protecting the
+-	page from all references. Un-mapping small segments of a mapping
+-	used to crash my SGI IRIX 5.0 system. I assume that nobody is running
+-	5.0 any longer.
+-
+-2.0.5 20-January-1995
+-	Port to Linux.
+diff -Nru ElectricFence-2.2.2/Makefile.am ElectricFence-2.2.2.new/Makefile.am
+--- ElectricFence-2.2.2/Makefile.am	Thu Jan  1 01:00:00 1970
++++ ElectricFence-2.2.2.new/Makefile.am	Thu Oct  5 18:21:10 2000
+@@ -0,0 +1,27 @@
++## Process this file with automake to produce Makefile.in
++
++AUTOMAKE_OPTIONS = 1.4
++
++man_MANS = efence.3
++
++lib_LTLIBRARIES = libefence.la
++
++libefence_la_SOURCES = \
++	efence.c \
++	efence.h \
++	page.c \
++	print.c
++
++libefence_la_LDFLAGS = -version-info 0:0:0
++
++bin_SCRIPTS = ef
++
++noinst_PROGRAMS = eftest tstheap
++
++eftest_SOURCES = eftest.c efence.h
++eftest_LDADD = libefence.la
++
++tstheap_SOURCES = tstheap.c efence.h
++tstheap_LDADD = libefence.la
++
++EXTRA_DIST = README
+diff -Nru ElectricFence-2.2.2/NEWS ElectricFence-2.2.2.new/NEWS
+--- ElectricFence-2.2.2/NEWS	Thu Jan  1 01:00:00 1970
++++ ElectricFence-2.2.2.new/NEWS	Tue Apr 13 19:27:29 1999
+@@ -0,0 +1,29 @@
++2.2.2	Oops. Shared library must be position-independent code.
++
++2.2.0
++	Merge in bug-fixes, multi-thread patch, shared library patch,
++	debian/ subdirectory used for building the Debian package
++
++2.0.1
++	Add work-arounds for kernel and library bugs under HP-UX.	
++	HP has been notified and will repair these soon.
++
++2.0.2
++	Add support for DEC Alpha. Add %a pattern for printing addresses, which
++	assumes they are passed in a void *.
++
++2.0.3 30-Sep-1993
++	When realloc is passed a zero address, it should work the same
++	way as malloc(). Fix forward declaration of mprotect() in page.c to
++	use void *, not caddr_t, for addresses. IRIX 5.0.1 complained about that.
++
++2.0.4 29-May-1994
++	Don't attempt to allow access to a zero-sized page when
++	EF_ALLOW_MALLOC_0 is set. Attempt to un-map memory from
++	Page_Delete(). If that doesn't work, fall back by protecting the
++	page from all references. Un-mapping small segments of a mapping
++	used to crash my SGI IRIX 5.0 system. I assume that nobody is running
++	5.0 any longer.
++
++2.0.5 20-January-1995
++	Port to Linux.
+diff -Nru ElectricFence-2.2.2/config.h.in ElectricFence-2.2.2.new/config.h.in
+--- ElectricFence-2.2.2/config.h.in	Thu Jan  1 01:00:00 1970
++++ ElectricFence-2.2.2.new/config.h.in	Thu Oct  5 03:52:17 2000
+@@ -0,0 +1,44 @@
++/* config.h.in.  Generated automatically from configure.in by autoheader.  */
++
++/* Define to empty if the keyword does not work.  */
++#undef const
++
++/* Define if you have a working `mmap' system call.  */
++#undef HAVE_MMAP
++
++/* Define as the return type of signal handlers (int or void).  */
++#undef RETSIGTYPE
++
++/* Define to `unsigned' if <sys/types.h> doesn't define.  */
++#undef size_t
++
++/* Define if you have the ANSI C header files.  */
++#undef STDC_HEADERS
++
++/* Define if you have the getpagesize function.  */
++#undef HAVE_GETPAGESIZE
++
++/* Define if you have the strerror function.  */
++#undef HAVE_STRERROR
++
++/* Define if you have the <fcntl.h> header file.  */
++#undef HAVE_FCNTL_H
++
++/* Define if you have the <limits.h> header file.  */
++#undef HAVE_LIMITS_H
++
++/* Define if you have the <unistd.h> header file.  */
++#undef HAVE_UNISTD_H
++
++/* Define if you have the c library (-lc).  */
++#undef HAVE_LIBC
++
++/* Define if you have the pthread library (-lpthread).  */
++#undef HAVE_LIBPTHREAD
++
++/* Name of package */
++#undef PACKAGE
++
++/* Version number of package */
++#undef VERSION
++
+diff -Nru ElectricFence-2.2.2/configure.in ElectricFence-2.2.2.new/configure.in
+--- ElectricFence-2.2.2/configure.in	Thu Jan  1 01:00:00 1970
++++ ElectricFence-2.2.2.new/configure.in	Thu Oct  5 18:12:38 2000
+@@ -0,0 +1,22 @@
++dnl Process this file with autoconf to produce a configure script
++
++AC_INIT(configure.in)
++
++AC_CANONICAL_SYSTEM
++
++AM_INIT_AUTOMAKE(ElectricFence, 2.2.2)
++
++AM_MAINTAINER_MODE
++
++dnl Checks for programs.
++AC_PROG_CC
++AC_PROG_INSTALL
++AC_PROG_LN_S
++AC_PROG_MAKE_SET
++AM_PROG_LIBTOOL
++
++dnl Replace `main' with a function in -lpthread:
++AC_CHECK_LIB(pthread, main)
++
++AC_OUTPUT(Makefile)
++AM_CONFIG_HEADER(config.h)
+diff -Nru ElectricFence-2.2.2/ef ElectricFence-2.2.2.new/ef
+--- ElectricFence-2.2.2/ef	Thu Jan  1 01:00:00 1970
++++ ElectricFence-2.2.2.new/ef	Thu Oct  5 03:10:38 2000
+@@ -0,0 +1,20 @@
++#!/bin/sh
++
++#
++# Simple script to run electric fence on stuff.  (needs libefence.so).
++#
++# $Id$
++#
++
++# Usage check.
++if [ "$1" = "" ]; then
++	echo "$0: Usage: ef [executable] [arguments]."
++	echo "	Runs the executable under the Electric Fence malloc debugger."
++	exit
++fi
++
++# Set the environment to load eletric fence.
++(\
++export LD_PRELOAD=libefence.so.0.0;\
++exec $*;\
++)
+diff -Nru ElectricFence-2.2.2/ef.sh ElectricFence-2.2.2.new/ef.sh
+--- ElectricFence-2.2.2/ef.sh	Thu Oct  5 18:20:09 2000
++++ ElectricFence-2.2.2.new/ef.sh	Thu Jan  1 01:00:00 1970
+@@ -1,20 +0,0 @@
+-#!/bin/sh
+-
+-#
+-# Simple script to run electric fence on stuff.  (needs libefence.so).
+-#
+-# $Id$
+-#
+-
+-# Usage check.
+-if [ "$1" = "" ]; then
+-	echo "$0: Usage: ef [executable] [arguments]."
+-	echo "	Runs the executable under the Electric Fence malloc debugger."
+-	exit
+-fi
+-
+-# Set the environment to load eletric fence.
+-(\
+-export LD_PRELOAD=libefence.so.0.0;\
+-exec $*;\
+-)
