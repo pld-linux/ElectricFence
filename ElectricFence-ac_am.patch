@@ -95,58 +95,10 @@ diff -Nru ElectricFence-2.2.2/NEWS ElectricFence-2.2.2.new/NEWS
 +
 +2.0.5 20-January-1995
 +	Port to Linux.
-diff -Nru ElectricFence-2.2.2/config.h.in ElectricFence-2.2.2.new/config.h.in
---- ElectricFence-2.2.2/config.h.in	Thu Jan  1 01:00:00 1970
-+++ ElectricFence-2.2.2.new/config.h.in	Thu Oct  5 03:52:17 2000
-@@ -0,0 +1,44 @@
-+/* config.h.in.  Generated automatically from configure.in by autoheader.  */
-+
-+/* Define to empty if the keyword does not work.  */
-+#undef const
-+
-+/* Define if you have a working `mmap' system call.  */
-+#undef HAVE_MMAP
-+
-+/* Define as the return type of signal handlers (int or void).  */
-+#undef RETSIGTYPE
-+
-+/* Define to `unsigned' if <sys/types.h> doesn't define.  */
-+#undef size_t
-+
-+/* Define if you have the ANSI C header files.  */
-+#undef STDC_HEADERS
-+
-+/* Define if you have the getpagesize function.  */
-+#undef HAVE_GETPAGESIZE
-+
-+/* Define if you have the strerror function.  */
-+#undef HAVE_STRERROR
-+
-+/* Define if you have the <fcntl.h> header file.  */
-+#undef HAVE_FCNTL_H
-+
-+/* Define if you have the <limits.h> header file.  */
-+#undef HAVE_LIMITS_H
-+
-+/* Define if you have the <unistd.h> header file.  */
-+#undef HAVE_UNISTD_H
-+
-+/* Define if you have the c library (-lc).  */
-+#undef HAVE_LIBC
-+
-+/* Define if you have the pthread library (-lpthread).  */
-+#undef HAVE_LIBPTHREAD
-+
-+/* Name of package */
-+#undef PACKAGE
-+
-+/* Version number of package */
-+#undef VERSION
-+
 diff -Nru ElectricFence-2.2.2/configure.in ElectricFence-2.2.2.new/configure.in
 --- ElectricFence-2.2.2/configure.in	Thu Jan  1 01:00:00 1970
 +++ ElectricFence-2.2.2.new/configure.in	Thu Oct  5 18:12:38 2000
-@@ -0,0 +1,22 @@
+@@ -0,0 +1,19 @@
 +dnl Process this file with autoconf to produce a configure script
 +
 +AC_INIT(configure.in)
@@ -163,10 +115,7 @@ diff -Nru ElectricFence-2.2.2/configure.in ElectricFence-2.2.2.new/configure.in
 +AC_PROG_INSTALL
 +AC_PROG_LN_S
 +AC_PROG_MAKE_SET
-+AM_PROG_LIBTOOL
-+
-+dnl Replace `main' with a function in -lpthread:
-+AC_CHECK_LIB(pthread, main)
++AC_PROG_LIBTOOL
 +
 +AC_OUTPUT(Makefile)
 diff -Nru ElectricFence-2.2.2/ef ElectricFence-2.2.2.new/ef
