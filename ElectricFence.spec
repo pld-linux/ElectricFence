@@ -20,7 +20,7 @@ Summary(tr):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN):	Ò»ÖÖµ÷ÊÔÆ÷ÓÃÓÚ¼ì²âÄÚ´æ·ÖÅä´íÎó
 Name:		ElectricFence
 Version:	2.2.2
-Release:	14
+Release:	15
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
@@ -29,6 +29,7 @@ Patch0:		%{name}-longjmp.patch
 Patch1:		%{name}-no_bash.spec
 Patch2:		%{name}-va_arg.patch
 Patch3:		%{name}-ac_am.patch
+Patch4:		%{name}-pthread.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
@@ -111,11 +112,13 @@ Biblioteka statyczna Electric Fence.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 %{__libtoolize}
 %{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
 %configure
