@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 * Sun Apr 11 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.1-1]
 - added Group(pl),
-- gzipping $doc.
+- gzipping %doc.
 
 * Wed Dec 30 1998 Wojtek ¦lusarczyk <wojtek@shadow.eu.org>
   [2.0.5-11d]
