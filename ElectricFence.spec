@@ -7,7 +7,7 @@ Summary(pt):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	9
+Release:	10
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
@@ -98,6 +98,7 @@ libtoolize --copy --force
 aclocal
 autoconf
 automake -a -c
+CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
 %configure
 %{__make}
 
