@@ -7,14 +7,19 @@ Summary(pt):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	5
+Release:	6
 License:	GPL
 Group:		Development/Debuggers
+Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
-Patch0:		ElectricFence-longjmp.patch
-Patch1:		ElectricFence-no_bash.spec
-Patch2:		ElectricFence-va_arg.patch
+Patch0:		%{name}-longjmp.patch
+Patch1:		%{name}-no_bash.spec
+Patch2:		%{name}-va_arg.patch
+Patch3:		%{name}-ac_am.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -72,6 +77,7 @@ býrakýlmasý gibi) konusunda uyarýr.
 Summary:	Satatic Electric Fence library
 Summary(pl):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
+Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 
 %description static
@@ -85,23 +91,23 @@ Biblioteka statyczna Electric Fence.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
+libtoolize --copy --force
+automake -a -c
+aclocal
+autoconf
+%configure
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}/{bin,lib,share/man/man3}
 
-make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT%{_bindir} \
-	LIB_INSTALL_DIR=$RPM_BUILD_ROOT%{_libdir} \
-	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}/man3 \
-	install
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
 
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
-
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
-	README CHANGES
+gzip -9nf README NEWS
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
