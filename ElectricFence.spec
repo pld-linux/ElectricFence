@@ -1,7 +1,9 @@
 Summary:	A debugger which detects memory allocation violations
 Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
+Summary(es):	Electric Fence biblioteca de depuración de memoria en C
 Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
 Summary(pl):	Biblioteka do wykrywania b³edów alokacji pamiêci
+Summary(pt_BR):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
@@ -36,6 +38,11 @@ beendet das Programm bei der Instruktion, die die Speicherverletzung
 ausgelöst hat, und Sie können Ihren Lieblingsdebugger benutzen, um den
 Befehl anzuzeigen.
 
+%description -l es
+Electric Fence es una biblioteca que puede ser usada para programación y
+depuración en C. Tu lo "linkas" en tiempo de compilación y te avisará sobre
+posibles problemas, como liberación de memoria no alocada, etc.
+
 %description -l fr
 Electric Fence est une bibliothéque utilisée pour la programmation en C et
 le débogage. Vous pouvez la lier à la compilation et elle vous avertira des
@@ -50,6 +57,11 @@ potrzeba linkowaæ z t± bibliotek± ¶ledzonego programu. Pakiet zawiera tak¿e
 skrypt shellowy ef, któremu mo¿na ³aduje do pamiêci przez LD_PRELOAD
 libliotekê libefence i uruchamia program przekazyny do tego skryptu jako
 parametr.
+
+%description -l pt_BR
+Electric Fence é uma biblioteca que pode ser usada para programação e
+depuração em C. Você o "linka" em tempo de compilação e ele o avisará sobre
+possíveis problemas como liberação de memória não alocada, etc.
 
 %description -l tr
 Electric Fence, C'de programlama ve hata ayýklama için kullanýlabilen bir
