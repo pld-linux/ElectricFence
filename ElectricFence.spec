@@ -72,11 +72,11 @@ rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/{bin,lib,share/man/man3}
 
 make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
-	LIB_INSTALL_DIR=$RPM_BUILD_ROOT/usr/lib \
+	LIB_INSTALL_DIR=$RPM_BUILD_ROOT%{_libdir} \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}/man3 \
 	install
 
-strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*so.*.*
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*so.*.*
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
 	README CHANGES
@@ -88,12 +88,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc *gz
 %attr(755,root,root) /usr/bin/ef
-%attr(755,root,root) /usr/lib/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man3/*
 
 %files static
 %defattr(644,root,root,755)
-/usr/lib/lib*.a
+%{_libdir}/lib*.a
 
 %changelog
 * Sun May  9 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
