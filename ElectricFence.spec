@@ -3,17 +3,18 @@ Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
 Summary(es):	Electric Fence biblioteca de depuración de memoria en C
 Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
 Summary(pl):	Biblioteka do wykrywania b³edów alokacji pamiêci
-Summary(pt_BR):Electric Fence biblioteca de depuração de memória em C
+Summary(pt):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	3
+Release:	4
 License:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
-Source0:	ftp://perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
+Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 Patch0:		ElectricFence-longjmp.patch
 Patch1:		ElectricFence-no_bash.spec
+Patch2:		ElectricFence-va_arg.patch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -25,9 +26,6 @@ and/or to detect any accesses of memory released by free().
 ElectricFence will then stop the program on the first instruction that
 caused a bounds violation and you can use your favorite debugger to
 display the offending statement.
-
-This package will install ElectricFence, which you can use if you're
-searching for a debugger to find malloc() violations.
 
 %description -l de
 Wenn Sie wissen, was malloc()-Verletzungen sind, sind Sie
@@ -59,7 +57,7 @@ dowolnego programu dziêki temu nie potrzeba linkowaæ z t± bibliotek±
 ³aduje do pamiêci przez LD_PRELOAD bibliotekê libefence i uruchamia
 program przekazany do tego skryptu jako parametr.
 
-%description -l pt_BR
+%description -l pt
 Electric Fence é uma biblioteca que pode ser usada para programação e
 depuração em C. Você o "linka" em tempo de compilação e ele o avisará
 sobre possíveis problemas como liberação de memória não alocada, etc.
@@ -86,6 +84,7 @@ Biblioteka statyczna Electric Fence.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
