@@ -102,7 +102,7 @@ Obsoletes:	libefence0-devel
 %description static
 Static Electric Fence library.
 
-%description -l pl static
+%description static -l pl
 Biblioteka statyczna Electric Fence.
 
 %prep
