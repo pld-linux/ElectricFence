@@ -140,7 +140,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ef
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %attr(755,root,root) %{_libdir}/lib*.so
-%ghost %{_libdir}/libefence.so.0
 %{_mandir}/man3/*
 
 %files static
