@@ -5,7 +5,7 @@ Summary(pl):	Biblioteka Electric Fence
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.0
-Release:	3
+Release:	4
 Copyright:	GPL
 Group:		Development/Debuggers
 Group(pl):	Programowanie/Odpluskwiacze
@@ -69,16 +69,16 @@ make CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/usr/{bin,lib,man/man3}
+mkdir -p $RPM_BUILD_ROOT/usr/{bin,lib,share/man/man3}
 
 make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
 	LIB_INSTALL_DIR=$RPM_BUILD_ROOT/usr/lib \
-	MAN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/man/man3 \
+	MAN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/share/man/man3 \
 	install
 
 strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*so.*.*
 
-gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/* \
+gzip -9nf $RPM_BUILD_ROOT/usr/share/man/man3/* \
 	README CHANGES
 
 %clean
@@ -89,13 +89,17 @@ rm -rf $RPM_BUILD_ROOT
 %doc *gz
 %attr(755,root,root) /usr/bin/ef
 %attr(755,root,root) /usr/lib/lib*.so.*.*
-/usr/man/man3/*
+/usr/share/man/man3/*
 
 %files static
 %defattr(644,root,root,755)
 /usr/lib/lib*.a
 
 %changelog
+* Sun May  9 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
+  [2.2-4]
+- now package is FHS 2.0 compiliat.
+
 * Sat Apr 24 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
   [2.2-3]
 - fixed makin man page for EF,
