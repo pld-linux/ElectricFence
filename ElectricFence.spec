@@ -77,6 +77,8 @@ make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
 
 echo .so libefence.3 > $RPM_BUILD_ROOT/usr/man/man3/efence.3
 
+strip --strip-unneeded $RPM_BUILD_ROOT/usr/lib/lib*so.*.*
+
 gzip -9nf $RPM_BUILD_ROOT/usr/man/man3/* \
 	README CHANGES
 
