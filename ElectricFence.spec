@@ -71,7 +71,7 @@ make CFLAGS="$RPM_OPT_FLAGS"
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/{bin,lib,share/man/man3}
 
-make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT/usr/bin \
+make	BIN_INSTALL_DIR=$RPM_BUILD_ROOT%{_bindir} \
 	LIB_INSTALL_DIR=$RPM_BUILD_ROOT%{_libdir} \
 	MAN_INSTALL_DIR=$RPM_BUILD_ROOT%{_mandir}/man3 \
 	install
@@ -87,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc *gz
-%attr(755,root,root) /usr/bin/ef
+%attr(755,root,root) %{_bindir}/ef
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 %{_mandir}/man3/*
 
