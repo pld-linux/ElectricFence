@@ -97,14 +97,3 @@ rm -rf $RPM_BUILD_ROOT
 %files static
 %defattr(644,root,root,755)
 %{_libdir}/lib*.a
-
-%changelog
-* Thu Jun 17 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2.2-2]
-- fixed ef.sh script (this is pure sh script),
-- added runing /sbin/ldconfig in %post/%postun.
-
-* Fri Jun  4 1999 Tomasz K³oczko <kloczek@rudy.mif.pg.gda.pl>
-  [2.2.2-1]
-- based on RH spec,
-- spec rewrited by PLD team.
