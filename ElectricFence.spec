@@ -2,12 +2,12 @@ Summary:	A debugger which detects memory allocation violations
 Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
 Summary(es):	Electric Fence biblioteca de depuración de memoria en C
 Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
-Summary(pl):	Biblioteka do wykrywania b³edów alokacji pamiêci
+Summary(pl):	Biblioteka do wykrywania b³êdów alokacji pamiêci
 Summary(pt):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	8
+Release:	9
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
@@ -55,7 +55,7 @@ avertira des problèmes éventuels de désallocation de mémoire, etc.
 
 %description -l pl
 Electric Fence jest bibliotek± pomocn± podczas programowania w jêzyku
-C i "odpluskwianiu". Pakiet zawiera bibliotekê wspó³dzielon±, która
+C i "odpluskwiania". Pakiet zawiera bibliotekê wspó³dzielon±, która
 mo¿e byæ za³adowana przez zmienn± LD_PRELOAD w trakcie uruchamiania
 dowolnego programu dziêki temu nie potrzeba linkowaæ z t± bibliotek±
 ¶ledzonego programu. Pakiet zawiera tak¿e skrypt pow³oki ef, który
@@ -74,14 +74,14 @@ ortaya çýkabilecek sorunlar (var olmayan bir bellek parçasýnýn serbest
 býrakýlmasý gibi) konusunda uyarýr.
 
 %package static
-Summary:	Satatic Electric Fence library
+Summary:	Static Electric Fence library
 Summary(pl):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
 Group(pl):	Programowanie/Odpluskwiacze
 
 %description static
-Satatic Electric Fence library.
+Static Electric Fence library.
 
 %description -l pl static
 Biblioteka statyczna Electric Fence.
@@ -95,16 +95,16 @@ Biblioteka statyczna Electric Fence.
 
 %build
 libtoolize --copy --force
-automake -a -c
 aclocal
 autoconf
+automake -a -c
 %configure
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf README NEWS

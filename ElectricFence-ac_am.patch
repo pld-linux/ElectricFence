@@ -150,6 +150,7 @@ diff -Nru ElectricFence-2.2.2/configure.in ElectricFence-2.2.2.new/configure.in
 +dnl Process this file with autoconf to produce a configure script
 +
 +AC_INIT(configure.in)
++AM_CONFIG_HEADER(config.h)
 +
 +AC_CANONICAL_SYSTEM
 +
@@ -168,7 +169,6 @@ diff -Nru ElectricFence-2.2.2/configure.in ElectricFence-2.2.2.new/configure.in
 +AC_CHECK_LIB(pthread, main)
 +
 +AC_OUTPUT(Makefile)
-+AM_CONFIG_HEADER(config.h)
 diff -Nru ElectricFence-2.2.2/ef ElectricFence-2.2.2.new/ef
 --- ElectricFence-2.2.2/ef	Thu Jan  1 01:00:00 1970
 +++ ElectricFence-2.2.2.new/ef	Thu Oct  5 03:10:38 2000
@@ -190,7 +190,7 @@ diff -Nru ElectricFence-2.2.2/ef ElectricFence-2.2.2.new/ef
 +
 +# Set the environment to load eletric fence.
 +(\
-+export LD_PRELOAD=libefence.so.0.0;\
++export LD_PRELOAD=libefence.so.0;\
 +exec $*;\
 +)
 diff -Nru ElectricFence-2.2.2/ef.sh ElectricFence-2.2.2.new/ef.sh
