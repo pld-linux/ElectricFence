@@ -114,8 +114,8 @@ Biblioteka statyczna Electric Fence.
 %build
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
 %configure
 %{__make}
