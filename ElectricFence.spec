@@ -20,7 +20,7 @@ Summary(tr):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN):	Ò»ÖÖµ÷ÊÔÆ÷ÓÃÓÚ¼ì²âÄÚ´æ·ÖÅä´íÎó
 Name:		ElectricFence
 Version:	2.2.2
-Release:	11
+Release:	12
 License:	GPL
 Group:		Development/Debuggers
 Group(cs):	Vıvojové prostøedky/Debuggery
