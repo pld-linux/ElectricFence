@@ -23,18 +23,6 @@ Version:	2.2.2
 Release:	12
 License:	GPL
 Group:		Development/Debuggers
-Group(cs):	Vıvojové prostøedky/Debuggery
-Group(da):	Udvikling/Fejlfinding
-Group(de):	Entwicklung/Debugger
-Group(es):	Desarrollo/Depuradores
-Group(fr):	Développement/Débogueurs
-Group(it):	Sviluppo/Debugger
-Group(ja):	³«È¯/¥Ç¥Ğ¥Ã¥¬
-Group(no):	Utvikling/Debuggere
-Group(pl):	Programowanie/Odpluskwiacze
-Group(pt):	Desenvolvimento/Depuradores
-Group(ru):	òÁÚÒÁÂÏÔËÁ/ïÔÌÁÄŞÉËÉ
-Group(sv):	Utveckling/Felsökning
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 Patch0:		%{name}-longjmp.patch
 Patch1:		%{name}-no_bash.spec
@@ -108,18 +96,6 @@ bırakılması gibi) konusunda uyarır.
 Summary:	Static Electric Fence library
 Summary(pl):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
-Group(cs):	Vıvojové prostøedky/Debuggery
-Group(da):	Udvikling/Fejlfinding
-Group(de):	Entwicklung/Debugger
-Group(es):	Desarrollo/Depuradores
-Group(fr):	Développement/Débogueurs
-Group(it):	Sviluppo/Debugger
-Group(ja):	³«È¯/¥Ç¥Ğ¥Ã¥¬
-Group(no):	Utvikling/Debuggere
-Group(pl):	Programowanie/Odpluskwiacze
-Group(pt):	Desenvolvimento/Depuradores
-Group(ru):	òÁÚÒÁÂÏÔËÁ/ïÔÌÁÄŞÉËÉ
-Group(sv):	Utveckling/Felsökning
 Obsoletes:	libefence0-devel
 
 %description static
