@@ -7,7 +7,7 @@ Summary(pt):	Electric Fence biblioteca de depuração de memória em C
 Summary(tr):	C için bellek hatasý ayýklama kitaplýðý
 Name:		ElectricFence
 Version:	2.2.2
-Release:	6
+Release:	8
 License:	GPL
 Group:		Development/Debuggers
 Group(de):	Entwicklung/Debugger
