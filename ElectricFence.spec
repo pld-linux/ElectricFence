@@ -8,7 +8,7 @@ Summary(id):	Debugger untuk menditeksi memory allocation violations
 Summary(is):	Aflúsunartól sem finnur villur í minnismeðhöndlun
 Summary(it):	Debugger che rileva le violazioni dell'allocazione di memoria
 Summary(ja):	¥á¥â¥ê³ä¤êÅö¤Æ¤Î¿¯Î¬¤ò¸¡½Ð¤¹¤ë¥Ç¥Ð¥Ã¥¬
-Summary(no):	Et avlusingsprogram som finner overtramp ved minneallokering
+Summary(nb):	Et avlusingsprogram som finner overtramp ved minneallokering
 Summary(pl):	Biblioteka do wykrywania b³êdów alokacji pamiêci
 Summary(pt):	Um depurador que detecta violações à memória alocada
 Summary(pt_BR):	Electric Fence biblioteca de depuração de memória em C
