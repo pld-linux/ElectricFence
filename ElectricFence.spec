@@ -62,6 +62,7 @@ Biblioteka statyczna Electric Fence.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 make CFLAGS="$RPM_OPT_FLAGS"
