@@ -113,7 +113,7 @@ Biblioteka statyczna Electric Fence.
 
 %build
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
