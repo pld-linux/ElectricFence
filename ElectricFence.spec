@@ -14,7 +14,7 @@ Group(pl):	Programowanie/Odpluskwiacze
 Source:		ftp://perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 Patch0:		ElectricFence-longjmp.patch
 Patch1:		ElectricFence-no_bash.spec
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 If you know what malloc() violations are, you'll be interested in
