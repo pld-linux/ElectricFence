@@ -1,23 +1,23 @@
 Summary:	A debugger which detects memory allocation violations
-Summary(cs.UTF-8):   Nástroj pro odhalování chyb při alokaci dynamické paměti
-Summary(da.UTF-8):   En afluser som finder problemer ved hukommelsesallokering
-Summary(de.UTF-8):   Debugger zum Erkennen von Speicherzugriffsverletzungen
-Summary(es.UTF-8):   Electric Fence biblioteca de depuración de memoria en C
-Summary(fr.UTF-8):   Bibliothèque C de débuggage mémoire Electric Fence
-Summary(id.UTF-8):   Debugger untuk menditeksi memory allocation violations
-Summary(is.UTF-8):   Aflúsunartól sem finnur villur í minnismeðhöndlun
-Summary(it.UTF-8):   Debugger che rileva le violazioni dell'allocazione di memoria
-Summary(ja.UTF-8):   メモリ割り当ての侵略を検出するデバッガ
-Summary(nb.UTF-8):   Et avlusingsprogram som finner overtramp ved minneallokering
-Summary(pl.UTF-8):   Biblioteka do wykrywania błędów alokacji pamięci
-Summary(pt.UTF-8):   Um depurador que detecta violações à memória alocada
-Summary(pt_BR.UTF-8):   Electric Fence biblioteca de depuração de memória em C
-Summary(ru.UTF-8):   Отладчик, выявляющий ошибки в распределении памяти
-Summary(sk.UTF-8):   Debugger pre vyhľadávanie chybných prístupov k alokovanej pamäti
-Summary(sl.UTF-8):   Razhroščevalnik, ki najde prekoračitve dodeljenega pomnilnika
-Summary(sv.UTF-8):   Ett avlusningsprogram som upptäcker minnesallokeringsfel
-Summary(tr.UTF-8):   C için bellek hatası ayıklama kitaplığı
-Summary(zh_CN.UTF-8):   一种调试器用于检测内存分配错误
+Summary(cs.UTF-8):	Nástroj pro odhalování chyb při alokaci dynamické paměti
+Summary(da.UTF-8):	En afluser som finder problemer ved hukommelsesallokering
+Summary(de.UTF-8):	Debugger zum Erkennen von Speicherzugriffsverletzungen
+Summary(es.UTF-8):	Electric Fence biblioteca de depuración de memoria en C
+Summary(fr.UTF-8):	Bibliothèque C de débuggage mémoire Electric Fence
+Summary(id.UTF-8):	Debugger untuk menditeksi memory allocation violations
+Summary(is.UTF-8):	Aflúsunartól sem finnur villur í minnismeðhöndlun
+Summary(it.UTF-8):	Debugger che rileva le violazioni dell'allocazione di memoria
+Summary(ja.UTF-8):	メモリ割り当ての侵略を検出するデバッガ
+Summary(nb.UTF-8):	Et avlusingsprogram som finner overtramp ved minneallokering
+Summary(pl.UTF-8):	Biblioteka do wykrywania błędów alokacji pamięci
+Summary(pt.UTF-8):	Um depurador que detecta violações à memória alocada
+Summary(pt_BR.UTF-8):	Electric Fence biblioteca de depuração de memória em C
+Summary(ru.UTF-8):	Отладчик, выявляющий ошибки в распределении памяти
+Summary(sk.UTF-8):	Debugger pre vyhľadávanie chybných prístupov k alokovanej pamäti
+Summary(sl.UTF-8):	Razhroščevalnik, ki najde prekoračitve dodeljenega pomnilnika
+Summary(sv.UTF-8):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
+Summary(tr.UTF-8):	C için bellek hatası ayıklama kitaplığı
+Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
 Version:	2.2.2
 Release:	15
@@ -96,7 +96,7 @@ bırakılması gibi) konusunda uyarır.
 
 %package static
 Summary:	Static Electric Fence library
-Summary(pl.UTF-8):   Biblioteka statyczna Electric Fence
+Summary(pl.UTF-8):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
 Obsoletes:	libefence0-devel
 
