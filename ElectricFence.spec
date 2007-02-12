@@ -1,23 +1,23 @@
 Summary:	A debugger which detects memory allocation violations
-Summary(cs):	Nástroj pro odhalování chyb pøi alokaci dynamické pamìti
-Summary(da):	En afluser som finder problemer ved hukommelsesallokering
-Summary(de):	Debugger zum Erkennen von Speicherzugriffsverletzungen
-Summary(es):	Electric Fence biblioteca de depuración de memoria en C
-Summary(fr):	Bibliothèque C de débuggage mémoire Electric Fence
-Summary(id):	Debugger untuk menditeksi memory allocation violations
-Summary(is):	Aflúsunartól sem finnur villur í minnismeğhöndlun
-Summary(it):	Debugger che rileva le violazioni dell'allocazione di memoria
-Summary(ja):	¥á¥â¥ê³ä¤êÅö¤Æ¤Î¿¯Î¬¤ò¸¡½Ğ¤¹¤ë¥Ç¥Ğ¥Ã¥¬
-Summary(nb):	Et avlusingsprogram som finner overtramp ved minneallokering
-Summary(pl):	Biblioteka do wykrywania b³êdów alokacji pamiêci
-Summary(pt):	Um depurador que detecta violações à memória alocada
-Summary(pt_BR):	Electric Fence biblioteca de depuração de memória em C
-Summary(ru):	ïÔÌÁÄŞÉË, ×ÙÑ×ÌÑÀİÉÊ ÏÛÉÂËÉ × ÒÁÓĞÒÅÄÅÌÅÎÉÉ ĞÁÍÑÔÉ
-Summary(sk):	Debugger pre vyhµadávanie chybnıch prístupov k alokovanej pamäti
-Summary(sl):	Razhro¹èevalnik, ki najde prekoraèitve dodeljenega pomnilnika
-Summary(sv):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
-Summary(tr):	C için bellek hatası ayıklama kitaplığı
-Summary(zh_CN):	Ò»ÖÖµ÷ÊÔÆ÷ÓÃÓÚ¼ì²âÄÚ´æ·ÖÅä´íÎó
+Summary(cs.UTF-8):   NÃ¡stroj pro odhalovÃ¡nÃ­ chyb pÅ™i alokaci dynamickÃ© pamÄ›ti
+Summary(da.UTF-8):   En afluser som finder problemer ved hukommelsesallokering
+Summary(de.UTF-8):   Debugger zum Erkennen von Speicherzugriffsverletzungen
+Summary(es.UTF-8):   Electric Fence biblioteca de depuraciÃ³n de memoria en C
+Summary(fr.UTF-8):   BibliothÃ¨que C de dÃ©buggage mÃ©moire Electric Fence
+Summary(id.UTF-8):   Debugger untuk menditeksi memory allocation violations
+Summary(is.UTF-8):   AflÃºsunartÃ³l sem finnur villur Ã­ minnismeÃ°hÃ¶ndlun
+Summary(it.UTF-8):   Debugger che rileva le violazioni dell'allocazione di memoria
+Summary(ja.UTF-8):   ãƒ¡ãƒ¢ãƒªå‰²ã‚Šå½“ã¦ã®ä¾µç•¥ã‚’æ¤œå‡ºã™ã‚‹ãƒ‡ãƒãƒƒã‚¬
+Summary(nb.UTF-8):   Et avlusingsprogram som finner overtramp ved minneallokering
+Summary(pl.UTF-8):   Biblioteka do wykrywania bÅ‚Ä™dÃ³w alokacji pamiÄ™ci
+Summary(pt.UTF-8):   Um depurador que detecta violaÃ§Ãµes Ã  memÃ³ria alocada
+Summary(pt_BR.UTF-8):   Electric Fence biblioteca de depuraÃ§Ã£o de memÃ³ria em C
+Summary(ru.UTF-8):   ĞÑ‚Ğ»Ğ°Ğ´Ñ‡Ğ¸Ğº, Ğ²Ñ‹ÑĞ²Ğ»ÑÑÑ‰Ğ¸Ğ¹ Ğ¾ÑˆĞ¸Ğ±ĞºĞ¸ Ğ² Ñ€Ğ°ÑĞ¿Ñ€ĞµĞ´ĞµĞ»ĞµĞ½Ğ¸Ğ¸ Ğ¿Ğ°Ğ¼ÑÑ‚Ğ¸
+Summary(sk.UTF-8):   Debugger pre vyhÄ¾adÃ¡vanie chybnÃ½ch prÃ­stupov k alokovanej pamÃ¤ti
+Summary(sl.UTF-8):   RazhroÅ¡Äevalnik, ki najde prekoraÄitve dodeljenega pomnilnika
+Summary(sv.UTF-8):   Ett avlusningsprogram som upptÃ¤cker minnesallokeringsfel
+Summary(tr.UTF-8):   C iÃ§in bellek hatasÄ± ayÄ±klama kitaplÄ±ÄŸÄ±
+Summary(zh_CN.UTF-8):   ä¸€ç§è°ƒè¯•å™¨ç”¨äºæ£€æµ‹å†…å­˜åˆ†é…é”™è¯¯
 Name:		ElectricFence
 Version:	2.2.2
 Release:	15
@@ -46,64 +46,64 @@ ElectricFence will then stop the program on the first instruction that
 caused a bounds violation and you can use your favorite debugger to
 display the offending statement.
 
-%description -l de
+%description -l de.UTF-8
 Wenn Sie wissen, was malloc()-Verletzungen sind, sind Sie
 wahrscheinlich an ElectricFence interessiert. ElectricFence ist ein
 Tool, das zur C- Programmierung und zum Debugging benutzt werden kann.
 Es benutzt virtuelle Speicherhardware, um zu erkennen, wenn Software
-malloc()-Buffergrenzen übersteigt, und wenn Speicher mit free()
+malloc()-Buffergrenzen Ã¼bersteigt, und wenn Speicher mit free()
 freigegeben wird. ElectricFence beendet das Programm bei der
-Instruktion, die die Speicherverletzung ausgelöst hat, und Sie können
+Instruktion, die die Speicherverletzung ausgelÃ¶st hat, und Sie kÃ¶nnen
 Ihren Lieblingsdebugger benutzen, um den Befehl anzuzeigen.
 
-%description -l es
-ElectricFence es una herramienta que puede usarse para programación y
-depuración en lenguaje C. A través del uso del hardware de memoria
-virtual del sistema, detecta accesos que sobrepasan los límites de la
+%description -l es.UTF-8
+ElectricFence es una herramienta que puede usarse para programaciÃ³n y
+depuraciÃ³n en lenguaje C. A travÃ©s del uso del hardware de memoria
+virtual del sistema, detecta accesos que sobrepasan los lÃ­mites de la
 memoria asignada con malloc(), o acceso a la memoria liberada por
-free(). En esas situaciones, ElectricFence interrumpe la ejecución del
-programa en la primera instrucción que causó la violación, y puede
+free(). En esas situaciones, ElectricFence interrumpe la ejecuciÃ³n del
+programa en la primera instrucciÃ³n que causÃ³ la violaciÃ³n, y puede
 usarse un debugger para verificar la causa del problema.
 
-%description -l fr
-Electric Fence est une bibliothéque utilisée pour la programmation en
-C et le débogage. Vous pouvez la lier à la compilation et elle vous
-avertira des problèmes éventuels de désallocation de mémoire, etc.
+%description -l fr.UTF-8
+Electric Fence est une bibliothÃ©que utilisÃ©e pour la programmation en
+C et le dÃ©bogage. Vous pouvez la lier Ã  la compilation et elle vous
+avertira des problÃ¨mes Ã©ventuels de dÃ©sallocation de mÃ©moire, etc.
 
-%description -l pl
-Electric Fence jest bibliotek± pomocn± podczas programowania w jêzyku
-C i "odpluskwiania". Pakiet zawiera bibliotekê wspó³dzielon±, która
-mo¿e byæ za³adowana przez zmienn± LD_PRELOAD w trakcie uruchamiania
-dowolnego programu dziêki temu nie potrzeba konsolidowaæ z t±
-bibliotek± ¶ledzonego programu. Pakiet zawiera tak¿e skrypt pow³oki
-ef, który ³aduje do pamiêci przez LD_PRELOAD bibliotekê libefence i
+%description -l pl.UTF-8
+Electric Fence jest bibliotekÄ… pomocnÄ… podczas programowania w jÄ™zyku
+C i "odpluskwiania". Pakiet zawiera bibliotekÄ™ wspÃ³Å‚dzielonÄ…, ktÃ³ra
+moÅ¼e byÄ‡ zaÅ‚adowana przez zmiennÄ… LD_PRELOAD w trakcie uruchamiania
+dowolnego programu dziÄ™ki temu nie potrzeba konsolidowaÄ‡ z tÄ…
+bibliotekÄ… Å›ledzonego programu. Pakiet zawiera takÅ¼e skrypt powÅ‚oki
+ef, ktÃ³ry Å‚aduje do pamiÄ™ci przez LD_PRELOAD bibliotekÄ™ libefence i
 uruchamia program przekazany do tego skryptu jako parametr.
 
-%description -l pt_BR
-ElectricFence é uma ferramenta que pode ser usada com programação e
-depuracao em linguagem C. Através do uso do hardware de memoria
-virtual do sistema, o ElectricFence detecta acessos além dos limites
-da memória alocada com malloc(), ou acesso a memória liberada por
-free(). Nessas situações, o ElectricFence interrompe a execução do
-programa na primeira instrução que causou a violação, e um debugger
+%description -l pt_BR.UTF-8
+ElectricFence Ã© uma ferramenta que pode ser usada com programaÃ§Ã£o e
+depuracao em linguagem C. AtravÃ©s do uso do hardware de memoria
+virtual do sistema, o ElectricFence detecta acessos alÃ©m dos limites
+da memÃ³ria alocada com malloc(), ou acesso a memÃ³ria liberada por
+free(). Nessas situaÃ§Ãµes, o ElectricFence interrompe a execuÃ§Ã£o do
+programa na primeira instruÃ§Ã£o que causou a violaÃ§Ã£o, e um debugger
 pode ser usado para verificar a causa do problema.
 
-%description -l tr
-Electric Fence, C'de programlama ve hata ayıklama için kullanılabilen
-bir kitaplıktır. Derleme esnasında programınıza bağlarsanız, sizi
-ortaya çıkabilecek sorunlar (var olmayan bir bellek parçasının serbest
-bırakılması gibi) konusunda uyarır.
+%description -l tr.UTF-8
+Electric Fence, C'de programlama ve hata ayÄ±klama iÃ§in kullanÄ±labilen
+bir kitaplÄ±ktÄ±r. Derleme esnasÄ±nda programÄ±nÄ±za baÄŸlarsanÄ±z, sizi
+ortaya Ã§Ä±kabilecek sorunlar (var olmayan bir bellek parÃ§asÄ±nÄ±n serbest
+bÄ±rakÄ±lmasÄ± gibi) konusunda uyarÄ±r.
 
 %package static
 Summary:	Static Electric Fence library
-Summary(pl):	Biblioteka statyczna Electric Fence
+Summary(pl.UTF-8):   Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
 Obsoletes:	libefence0-devel
 
 %description static
 Static Electric Fence library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna Electric Fence.
 
 %prep
