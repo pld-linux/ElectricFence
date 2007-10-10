@@ -20,7 +20,7 @@ Summary(tr.UTF-8):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
 Version:	2.2.2
-Release:	15
+Release:	16
 License:	GPL
 Group:		Development/Debuggers
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
