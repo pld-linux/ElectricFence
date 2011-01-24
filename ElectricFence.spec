@@ -26,15 +26,15 @@ Group:		Development/Debuggers
 Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
 # Source0-md5:	56a3cbfdbf65f916988787c789c63e80
 Patch0:		%{name}-longjmp.patch
-Patch1:		%{name}-no_bash.spec
+Patch1:		%{name}-no_bash.patch
 Patch2:		%{name}-va_arg.patch
 Patch3:		%{name}-ac_am.patch
 Patch4:		%{name}-pthread.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	libefence0
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 If you know what malloc() violations are, you'll be interested in
