@@ -21,7 +21,7 @@ Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
 Version:	2.2.4
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Development/Debuggers
 Source0:	http://ftp.debian.org/debian/pool/main/e/electric-fence/electric-fence_%{version}.tar.gz
 # Source0-md5:	78197d625452a9bc2d171e47bce0ddff
@@ -104,6 +104,7 @@ Biblioteka statyczna Electric Fence.
 
 %build
 %{__make} \
+	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -fPIC -DUSE_SEMAPHORE"
 
 %install
@@ -117,21 +118,21 @@ ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so.0
 ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so
 install libefence.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %doc README CHANGES debian/changelog debian/README.debian debian/README.gdb
 %attr(755,root,root) %{_bindir}/ef
-%attr(755,root,root) %{_libdir}/lib*.so.0.0
-%ghost %attr(755,root,root) %{_libdir}/lib*.so.0
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_mandir}/man3/*
+%attr(755,root,root) %{_libdir}/libefence.so.0.0
+%ghost %attr(755,root,root) %{_libdir}/libefence.so.0
+%attr(755,root,root) %{_libdir}/libefence.so
+%{_mandir}/man3/libefence.3*
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libefence.a
