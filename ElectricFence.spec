@@ -19,20 +19,13 @@ Summary(sv.UTF-8):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
 Summary(tr.UTF-8):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
-Version:	2.2.2
-Release:	16
+Version:	2.2.4
+Release:	1
 License:	GPL
 Group:		Development/Debuggers
-Source0:	ftp://ftp.perens.com/pub/ElectricFence/Beta/%{name}-%{version}.tar.gz
-# Source0-md5:	56a3cbfdbf65f916988787c789c63e80
-Patch0:		%{name}-longjmp.patch
-Patch1:		%{name}-no_bash.patch
-Patch2:		%{name}-va_arg.patch
-Patch3:		%{name}-ac_am.patch
-Patch4:		%{name}-pthread.patch
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool
+Source0:	http://ftp.debian.org/debian/pool/main/e/electric-fence/electric-fence_%{version}.tar.gz
+# Source0-md5:	78197d625452a9bc2d171e47bce0ddff
+Source1:	ef.sh
 Obsoletes:	libefence0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -107,28 +100,22 @@ Static Electric Fence library.
 Biblioteka statyczna Electric Fence.
 
 %prep
-%setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
+%setup -qn electric-fence-2.2.3
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
-%configure
-%{__make}
+%{__make} \
+	CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}/man3}
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/ef
+install libefence.a $RPM_BUILD_ROOT%{_libdir}
+install libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}
+ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so.0
+ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so
+install libefence.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
@@ -138,9 +125,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README NEWS
+%doc README CHANGES debian/changelog debian/README.debian debian/README.gdb
 %attr(755,root,root) %{_bindir}/ef
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.0.0
+%ghost %attr(755,root,root) %{_libdir}/lib*.so.0
 %attr(755,root,root) %{_libdir}/lib*.so
 %{_mandir}/man3/*
 

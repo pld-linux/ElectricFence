@@ -1,9 +1,0 @@
-diff -Nru ElectricFence-2.2.2/ef.sh ElectricFence-2.2.2.new/ef.sh
---- ElectricFence-2.2.2/ef.sh	Mon Apr 12 01:59:22 1999
-+++ ElectricFence-2.2.2.new/ef.sh	Thu Jun 17 18:04:51 1999
-@@ -1,4 +1,4 @@
--#!/bin/bash
-+#!/bin/sh
- 
- #
- # Simple script to run electric fence on stuff.  (needs libefence.so).
