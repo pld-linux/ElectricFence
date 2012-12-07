@@ -142,27 +142,3 @@ diff -Nru ElectricFence-2.2.2/ef ElectricFence-2.2.2.new/ef
 +export LD_PRELOAD=libefence.so.0;\
 +exec $*;\
 +)
-diff -Nru ElectricFence-2.2.2/ef.sh ElectricFence-2.2.2.new/ef.sh
---- ElectricFence-2.2.2/ef.sh	Thu Oct  5 18:20:09 2000
-+++ ElectricFence-2.2.2.new/ef.sh	Thu Jan  1 01:00:00 1970
-@@ -1,20 +0,0 @@
--#!/bin/sh
--
--#
--# Simple script to run electric fence on stuff.  (needs libefence.so).
--#
--# $Id$
--#
--
--# Usage check.
--if [ "$1" = "" ]; then
--	echo "$0: Usage: ef [executable] [arguments]."
--	echo "	Runs the executable under the Electric Fence malloc debugger."
--	exit
--fi
--
--# Set the environment to load eletric fence.
--(\
--export LD_PRELOAD=libefence.so.0.0;\
--exec $*;\
--)
