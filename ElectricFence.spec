@@ -104,7 +104,7 @@ Biblioteka statyczna Electric Fence.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags} -DUSE_SEMAPHORE"
+	CFLAGS="%{rpmcflags} -fPIC -DUSE_SEMAPHORE"
 
 %install
 rm -rf $RPM_BUILD_ROOT
