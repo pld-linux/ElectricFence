@@ -19,14 +19,14 @@ Summary(sv.UTF-8):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
 Summary(tr.UTF-8):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
-Version:	2.2.4
+Version:	2.2.6
 Release:	1
 License:	GPL v2
 Group:		Development/Debuggers
 Source0:	http://ftp.debian.org/debian/pool/main/e/electric-fence/electric-fence_%{version}.tar.gz
-# Source0-md5:	78197d625452a9bc2d171e47bce0ddff
+# Source0-md5:	b8219270f2010bf1953db3f15cec04a3
 Source1:	ef.sh
-Obsoletes:	libefence0
+Obsoletes:	libefence0 < 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -91,7 +91,7 @@ bırakılması gibi) konusunda uyarır.
 Summary:	Static Electric Fence library
 Summary(pl.UTF-8):	Biblioteka statyczna Electric Fence
 Group:		Development/Debuggers
-Obsoletes:	libefence0-devel
+Obsoletes:	libefence0-devel < 2.3
 
 %description static
 Static Electric Fence library.
@@ -100,10 +100,10 @@ Static Electric Fence library.
 Biblioteka statyczna Electric Fence.
 
 %prep
-%setup -qn electric-fence-2.2.3
+%setup -q -c
 
 %build
-%{__make} \
+%{__make} -C work \
 	CC="%{__cc}" \
 	CFLAGS="%{rpmcflags} -fPIC -DUSE_SEMAPHORE"
 
@@ -112,11 +112,11 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir},%{_mandir}/man3}
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_bindir}/ef
-install libefence.a $RPM_BUILD_ROOT%{_libdir}
-install libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}
+install work/libefence.a $RPM_BUILD_ROOT%{_libdir}
+install work/libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}
 ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so.0
 ln -s libefence.so.0.0 $RPM_BUILD_ROOT%{_libdir}/libefence.so
-install libefence.3 $RPM_BUILD_ROOT%{_mandir}/man3
+cp -p work/libefence.3 $RPM_BUILD_ROOT%{_mandir}/man3
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -126,7 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc README CHANGES debian/changelog debian/README.debian debian/README.gdb
+%doc work/{CHANGES,README} work/debian/{README.debian,README.gdb,changelog}
 %attr(755,root,root) %{_bindir}/ef
 %attr(755,root,root) %{_libdir}/libefence.so.0.0
 %ghost %attr(755,root,root) %{_libdir}/libefence.so.0
