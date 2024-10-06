@@ -19,12 +19,12 @@ Summary(sv.UTF-8):	Ett avlusningsprogram som upptäcker minnesallokeringsfel
 Summary(tr.UTF-8):	C için bellek hatası ayıklama kitaplığı
 Summary(zh_CN.UTF-8):	一种调试器用于检测内存分配错误
 Name:		ElectricFence
-Version:	2.2.6
+Version:	2.2.7
 Release:	1
 License:	GPL v2
 Group:		Development/Debuggers
 Source0:	http://ftp.debian.org/debian/pool/main/e/electric-fence/electric-fence_%{version}.tar.gz
-# Source0-md5:	b8219270f2010bf1953db3f15cec04a3
+# Source0-md5:	611d9f7fb35202ad7ea6a35e66cfd5e9
 Source1:	ef.sh
 Obsoletes:	libefence0 < 2.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
